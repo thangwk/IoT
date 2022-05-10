@@ -1,7 +1,5 @@
 import os
-
 import win32com.client
-
 import system
 
 def load_data(output_directory):
