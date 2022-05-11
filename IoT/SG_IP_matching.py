@@ -10,12 +10,12 @@ def match_SG_IP(df, output_filename):
     is_SG_IP = []
     for i in df['SrcIP']:
         for ip in range(0, len(SG_IP['Monitored Subnets'])-2):
-            if ipaddress.ip_address(i) in ipaddress.ip_network(SG_IP['Monitored Subnets'][ip]):
+            if ipaddress.ip_address(i) in ipaddress.ip_network(SG_IP['Monitored 55555555555Subnets'][ip]):
                 val = SG_IP['As Name'][ip]
                 break
             else:
                 val = 'No'
         is_SG_IP.append(val)
     df['As Name'] = is_SG_IP
-    df.to_csv("check_IP_address_" + output_filename + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
+    df.to_csv("check_IP_address_" + output_filename + "_" + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
     return df
