@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="21f1f577-d37f-487a-88a0-1d925da33c5a" name="Changes" comment="added 2 more functions IP_address_filter.py &amp; SG_IP_matching.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IoT/IP_address_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/IP_address_filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IoT/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IoT/SG_IP_matching.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/SG_IP_matching.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IoT/load_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/load_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IoT/xml_to_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/xml_to_csv.py" afterDir="false" />
-    </list>
+    <list default="true" id="21f1f577-d37f-487a-88a0-1d925da33c5a" name="Changes" comment="added 2 more functions IP_address_filter.py &amp; SG_IP_matching.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,13 +31,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Data_Science_Projects/IoT/IoT"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Data_Science_Projects/IoT/IoT&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Projects" />
@@ -86,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652236964679</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added 2 more functions IP_address_filter.py &amp; SG_IP_matching.py">
+      <created>1652254353269</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652254353269</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
