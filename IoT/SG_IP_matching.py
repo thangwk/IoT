@@ -14,14 +14,14 @@ def match_SG_IP(df, output_filename):
     is_SG_IP_BGP = []
     is_SG_IP_Shodan = []
     for i in df['SrcIP']:
+        # shodan checks
         try:
-            # shodan checks
             host = api.host(i)
             is_SG_IP_Shodan.append(host['country_code'])
         except:
             is_SG_IP_Shodan.append('No')
         for ip in range(0, len(SG_IP['Monitored Subnets'])-2):
-            if ipaddress.ip_address(i) in ipaddress.ip_network(SG_IP['Monitored 55555555555Subnets'][ip]):
+            if ipaddress.ip_address(i) in ipaddress.ip_network(SG_IP['Monitored Subnets'][ip]):
                 val = SG_IP['As Name'][ip]
                 break
             else:
