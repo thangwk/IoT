@@ -8,7 +8,7 @@ def opensearch_request(start_date, end_date, ip):
     start date to be in format as listed 2022-03-01T16:00:00.000Z for 2022 03-02 00:00hours
     end date to be 2022-03-17T15:59:59.999Z for 2022 03-17
     IP = "xxx.xxx.xxx.xxx" format
-    returns a normalised dataframe where wget IP is in "_source.urls" column """
+    returns 4 values: URL, hashes, time_start,time_end """
     # load basic json request
     json_file = open("C:\Data_Science_Projects\IoT\OpenSearch_json.txt")
     json_request = json.load(json_file)
@@ -50,11 +50,12 @@ def opensearch_request(start_date, end_date, ip):
                              json=json_request)
     response_json = response.content.decode('utf-8').replace('\0', '')
     struct = json.loads(response_json)
-
+    if struct['rawResponse']['hits']['total'] < 1:
+        return 'None', 'None', 'None', 'None'
     # print(struct)
     df = pd.json_normalize(struct)
 
-    test = df['rawResponse.hits.hits'][0][0]
+    test = df['rawResponse.hits.hits'][0]
     # print(test)
     df1 = pd.json_normalize(test)
-    return df1
+    return df1['_source.urls'], df1['_source.hashes'], df1['_source.startTime'], df1['_source.endTime']
