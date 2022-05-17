@@ -45,3 +45,5 @@ def xml_to_csv(directory, output_filename):
 
         df.to_csv(output_filename, mode='a', index=False, header=not os.path.exists(output_filename))
         rows = []
+        output = pd.read_csv(output_filename)
+        return output
