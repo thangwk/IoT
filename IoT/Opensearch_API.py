@@ -10,7 +10,7 @@ def opensearch_request(start_date, end_date, ip):
     IP = "xxx.xxx.xxx.xxx" format
     returns 4 values: URL, hashes, time_start,time_end """
     # load basic json request
-    json_file = open("C:\Data_Science_Projects\IoT\OpenSearch_json.txt")
+    json_file = open(r"D:\Data\OpenSearch query\OpenSearch_json.txt")
     json_request = json.load(json_file)
 
     # set ip address
@@ -58,4 +58,6 @@ def opensearch_request(start_date, end_date, ip):
     test = df['rawResponse.hits.hits'][0]
     # print(test)
     df1 = pd.json_normalize(test)
-    return df1['_source.urls'], df1['_source.hashes'], df1['_source.startTime'], df1['_source.endTime']
+
+    return df1[['_source.peerIP', '_source.peerPort', '_source.loggedin', '_source.hostIP', '_source.hostPort',
+                '_source.geoip.country_code2', '_source.commands', '_source.urls', '_source.hashes']]
