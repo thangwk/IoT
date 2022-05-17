@@ -59,6 +59,6 @@ def opensearch_request(start_date, end_date, ip):
     # print(test)
     df1 = pd.json_normalize(test)
 
-    return df1[['_source.peerIP', '_source.peerPort', '_source.loggedin', '_source.hostIP', '_source.hostPort',
-                '_source.geoip.country_code2', '_source.commands', '_source.urls', '_source.hashes',
-                '_source.startTime','_source.endTime']]
+    output = df1[['_source.peerIP','_source.peerPort','_source.loggedin','_source.hostIP','_source.hostPort', '_source.geoip.country_code2','_source.commands','_source.urls','_source.hashes','_source.startTime','_source.endTime']]
+    output.columns=['Source IP','Source Port','loggedin','Dest IP','Dest Port','Source Country','Commands','urls','hashes','startTime','stopTime']
+    return output
