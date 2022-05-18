@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import requests
+import config
 
 
 def opensearch_request(start_date, end_date, ip):
@@ -32,7 +33,8 @@ def opensearch_request(start_date, end_date, ip):
         'content-type': 'application/json'
     }
 
-    data = '{"username":"csa_user", "password":"Qihys-CSA-2021"}'
+    data = config.data
+
 
     response = requests.post('https://os.gcaaide.org/_dashboards/auth/login', headers=headers, json=data)
     cookie_key = response.headers['set-cookie'].split()[0]
