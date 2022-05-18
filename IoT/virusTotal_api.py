@@ -1,5 +1,7 @@
 #import file where api key is stored at
 import config
+import requests
+import json
 
 def api_call_virustotal(ip_address):
     # username ='thang_liverpool'
