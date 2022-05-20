@@ -10,7 +10,7 @@ def api_call_virustotal(ip_address):
     api_url = "https://www.virustotal.com/api/v3/search?query=" + ip_address
     headers = {
         "Accept": "application/json",
-        "x-apikey": api_key
+        "x-apikey": config.virustotal_api_key
     }
     response = requests.get(api_url, headers=headers)
     return response

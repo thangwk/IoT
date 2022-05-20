@@ -33,9 +33,9 @@ def opensearch_request(start_date, end_date, ip):
         'content-type': 'application/json'
     }
 
-    data = config.data
+    data = config.Opensearch_API_key
 
-
+    #log in get session cookie
     response = requests.post('https://os.gcaaide.org/_dashboards/auth/login', headers=headers, json=data)
     cookie_key = response.headers['set-cookie'].split()[0]
 
@@ -44,10 +44,7 @@ def opensearch_request(start_date, end_date, ip):
         'content-type': 'application/json',
         'cookie': cookie_key
     }
-
-    # data = '{"params":{"index":"gca-honeyfarm-1-*,gca-honeyfarm-2-*","body":{"version":true,"size":500,"sort":[{"startTime":{"order":"desc","unmapped_type":"boolean"}}],"aggs":{"2":{"date_histogram":{"field":"startTime","fixed_interval":"12h","time_zone":"Asia/Singapore","min_doc_count":1}}},"stored_fields":["*"],"script_fields":{},"docvalue_fields":[{"field":"@timestamp","format":"date_time"},{"field":"endTime","format":"date_time"},{"field":"startTime","format":"date_time"}],"_source":{"excludes":[]},"query":{"bool":{"must":[],"filter":[{"bool":{"should":[{"match":{"commands":"busybox"}}],"minimum_should_match":1}},{"exists":{"field":"commands"}},{"range":{"startTime":{"gte":"2022-02-23T06:12:24.843Z","lte":"2022-03-23T06:12:24.843Z","format":"strict_date_optional_time"}}}],"should":[],"must_not":[]}},"highlight":{"pre_tags":["@opensearch-dashboards-highlighted-field@"],"post_tags":["@/opensearch-dashboards-highlighted-field@"],"fields":{"*":{}},"fragment_size":2147483647}},"preference":1648009227085}}'
-    # data = '{"params":{"index":"gca-honeyfarm-1-*","body":{"version":true,"size":500,"sort":[{"startTime":{"order":"desc","unmapped_type":"boolean"}}],"aggs":{"2":{"date_histogram":{"field":"startTime","fixed_interval":"30s","time_zone":"America/Los_Angeles","min_doc_count":1}}},"stored_fields":["*"],"script_fields":{},"docvalue_fields":[{"field":"@timestamp","format":"date_time"},{"field":"endTime","format":"date_time"},{"field":"startTime","format":"date_time"}],"_source":{"excludes":[]},"query":{"bool":{"must":[{"match_all":{}}],"filter":[{"range":{"startTime":{"gte":"2022-03-02T14:52:10.224Z","lte":"2022-03-02T15:07:10.224Z","format":"strict_date_optional_time"}}}],"should":[],"must_not":[]}},"highlight":{"pre_tags":["@opensearch-dashboards-highlighted-field@"],"post_tags":["@/opensearch-dashboards-highlighted-field@"],"fields":{"*":{}},"fragment_size":2147483647}},"preference":1646156231254}}'
-
+    # take the session cookie and do search based on parameters required.
     response = requests.post('https://os.gcaaide.org/_dashboards/internal/search/opensearch', headers=headers,
                              json=json_request)
     response_json = response.content.decode('utf-8').replace('\0', '')

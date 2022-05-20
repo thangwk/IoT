@@ -4,7 +4,8 @@ import pandas as pd
 import shodan
 from datetime import datetime
 
-SHODAN_API_KEY = "8FBW2mwRabHMFc8w4OUSRFACAP2qFgRR"
+import config
+SHODAN_API_KEY = config.shodan_api_key
 
 api = shodan.Shodan(SHODAN_API_KEY)
 def match_SG_IP(df, output_filename):
