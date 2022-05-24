@@ -3,7 +3,7 @@ import ipaddress
 import pandas as pd
 import shodan
 from datetime import datetime
-
+from tqdm import tqdm
 import config
 SHODAN_API_KEY = config.shodan_api_key
 
@@ -14,7 +14,7 @@ def match_SG_IP(df, output_filename):
 
     is_SG_IP_BGP = []
     is_SG_IP_Shodan = []
-    for i in df['SrcIP']:
+    for i in tqdm(df['SrcIP'], desc = 'Step 4: checking if IP addresses are SG'):
         # shodan checks
         try:
             host = api.host(i)
@@ -31,5 +31,6 @@ def match_SG_IP(df, output_filename):
     df['As Name BGP'] = is_SG_IP_BGP
     df['Shodan Check'] = is_SG_IP_Shodan
     df_ = df[(df['As Name BGP']!="No") | (df['Shodan Check']=='SG')]
+    os.chdir(r"D:\Projects\IoT\data")
     df_.to_csv("check_IP_address_" + output_filename + "_" + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
     return df_

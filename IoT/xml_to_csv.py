@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import xml.etree.ElementTree as ET
+import tqdm
 
 def xml_to_csv(directory, output_filename):
     file_list = os.listdir(directory)
@@ -8,7 +9,7 @@ def xml_to_csv(directory, output_filename):
             'SrcCC', 'TotalPacketCount', 'DisplayPacketCount', 'Type', 'PacketTime', 'DstIP', 'DstCC', 'DstPort',
             'SrcPort', 'Protocol', 'Flag', 'DarknetType']
 
-    for file in file_list:
+    for file in tqdm(file_list, desc = "Step 2: Convert xml to csv"):
         rows = []
         tree = ET.parse(directory + "\\" + file)
         root = tree.getroot()

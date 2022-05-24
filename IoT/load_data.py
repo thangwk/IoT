@@ -17,7 +17,7 @@ def load_data(output_directory):
     no_of_msg = len(list(messages))
     try:
         count = 0
-        for message in list(messages):
+        for message in tqdm(list(messages), desc ="Step 1: Extract xml attachments from emails":
             try:
                 count += 1
                 for attachment in message.Attachments:
