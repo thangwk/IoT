@@ -6,7 +6,7 @@ import json
 def api_call_virustotal(ip_address):
     # username ='thang_liverpool'
     ip_address = ip_address
-    api_key = config.api_key
+    api_key = config.virustotal_api_key
     api_url = "https://www.virustotal.com/api/v3/search?query=" + ip_address
     headers = {
         "Accept": "application/json",

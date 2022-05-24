@@ -10,7 +10,7 @@ SHODAN_API_KEY = config.shodan_api_key
 api = shodan.Shodan(SHODAN_API_KEY)
 def match_SG_IP(df, output_filename):
     # load PoC-monitored-APIxlsx file
-    SG_IP = pd.read_excel("PoC-monitored-APxlsx.xlsx")
+    SG_IP = pd.read_excel(r"D:\Data\DarkNet\PoC-monitored-APxlsx.xlsx")
 
     is_SG_IP_BGP = []
     is_SG_IP_Shodan = []
@@ -30,5 +30,6 @@ def match_SG_IP(df, output_filename):
         is_SG_IP_BGP.append(val)
     df['As Name BGP'] = is_SG_IP_BGP
     df['Shodan Check'] = is_SG_IP_Shodan
-    df.to_csv("check_IP_address_" + output_filename + "_" + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
-    return df
+    df_ = df[(df['As Name BGP']!="No") | (df['Shodan Check']=='SG')]
+    df_.to_csv("check_IP_address_" + output_filename + "_" + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
+    return df_

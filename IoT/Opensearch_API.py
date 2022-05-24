@@ -50,7 +50,10 @@ def opensearch_request(start_date, end_date, ip):
     response_json = response.content.decode('utf-8').replace('\0', '')
     struct = json.loads(response_json)
     if struct['rawResponse']['hits']['total'] < 1:
-        return 'None', 'None', 'None', 'None'
+        data = [[ip, 'None', 'None', 'None','None', 'None', 'None', 'None','None', 'None', 'None']]
+        output = pd.DataFrame(data, columns = ['Source IP','Source Port','loggedin','Dest IP','Dest Port'\
+                                           ,'Source Country','Commands','urls','hashes','startTime','stopTime'])
+        return output
     # print(struct)
     df = pd.json_normalize(struct)
 

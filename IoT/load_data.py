@@ -2,6 +2,7 @@ import os
 import win32com.client
 import system
 
+
 def load_data(output_directory):
     outlook = win32com.client.Dispatch('outlook.application')
     mapi = outlook.GetNamespace("MAPI")
