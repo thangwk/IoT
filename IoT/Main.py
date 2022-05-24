@@ -26,19 +26,19 @@ def main():
     #df = xml_to_csv.xml_to_csv(folder, output.csv)
 
     # step 3: do groupby to get highest packets and highest alerts based on IP
-    df = pd.read_csv(r"D:\Data\alerts.csv")
-    highest_packet, highest_alert = IP_address_filter.IP_address_grouping(df)
-    print("Step 3 done")
+  #  df = pd.read_csv(r"D:\Data\alerts.csv")
+  #  highest_packet, highest_alert = IP_address_filter.IP_address_grouping(df)
+  #  print("Step 3 done")
 
     # Optional. Change to directory that you want to save the results at
     # os.chdir()
 
     # step 4: check if IP belongs to SG
     #SG_highest_packet = SG_IP_matching.match_SG_IP(highest_packet, "SG_highest_packet_matched")
-    SG_highest_alert = SG_IP_matching.match_SG_IP(highest_alert, "SG_highest_alert_matched")
-    print('Step 4 done')
+  #  SG_highest_alert = SG_IP_matching.match_SG_IP(highest_alert, "SG_highest_alert_matched")
+  #  print('Step 4 done')
 
-    # SG_highest_alert = pd.read_csv("D:\Projects\IoT\check_IP_address_SG_highest_alert_matched_2022_05_23_17_36_23.csv")
+    SG_highest_alert = pd.read_csv("D:\Projects\IoT\data\check_IP_address_SG_highest_alert_matched_2022_05_23_17_36_23.csv")
     # # step 5: check if IP address is in Virustotal
     # # create columns to store response from API
 
@@ -78,7 +78,7 @@ def main():
         df_os = pd.concat([df_os,data])
         #pbar.update(1)
     #pbar.close()
-    df_os.to_csv(""opensearch_matched" + "_" + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
+    df_os.to_csv("opensearch_matched" + "_" + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
     print('Step 6 done')
 
 if __name__ == "__main__":
