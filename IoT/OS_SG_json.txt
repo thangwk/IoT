@@ -1,0 +1,91 @@
+{
+  "params": {
+    "index": "gca-honeyfarm-1-*,gca-honeyfarm-2-*",
+    "body": {
+      "version": true,
+      "size": 500,
+      "sort": [
+        {
+          "startTime": {
+            "order": "desc",
+            "unmapped_type": "boolean"
+          }
+        }
+      ],
+      "aggs": {
+        "2": {
+          "date_histogram": {
+            "field": "startTime",
+            "calendar_interval": "1h",
+            "time_zone": "Asia/Singapore",
+            "min_doc_count": 1
+          }
+        }
+      },
+      "stored_fields": [
+        "*"
+      ],
+      "script_fields": {},
+      "docvalue_fields": [
+        {
+          "field": "@timestamp",
+          "format": "date_time"
+        },
+        {
+          "field": "endTime",
+          "format": "date_time"
+        },
+        {
+          "field": "startTime",
+          "format": "date_time"
+        }
+      ],
+      "_source": {
+        "excludes": []
+      },
+      "query": {
+        "bool": {
+          "must": [],
+          "filter": [
+            {
+              "bool": {
+                "should": [
+                  {
+                    "match": {
+                      "geoip.country_code2": "SG"
+                    }
+                  }
+                ],
+                "minimum_should_match": 1
+              }
+            },
+            {
+              "range": {
+                "startTime": {
+                  "gte": "2022-09-03T06:22:41.695Z",
+                  "lte": "2022-09-05T06:22:41.695Z",
+                  "format": "strict_date_optional_time"
+                }
+              }
+            }
+          ],
+          "should": [],
+          "must_not": []
+        }
+      },
+      "highlight": {
+        "pre_tags": [
+          "@opensearch-dashboards-highlighted-field@"
+        ],
+        "post_tags": [
+          "@/opensearch-dashboards-highlighted-field@"
+        ],
+        "fields": {
+          "*": {}
+        },
+        "fragment_size": 2147483647
+      }
+    },
+    "preference": 1662358480769
+  }
+}

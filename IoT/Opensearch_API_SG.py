@@ -1,17 +1,11 @@
-import pandas as pd
-import json
-import requests
-import config
-
-
-def opensearch_request(start_date, end_date, ip):
+def opensearch_request(start_date, end_date):
     """function to find ip address that is doing a "wget" based on IP
     start date to be in format as listed 2022-03-01T16:00:00.000Z for 2022 03-02 00:00hours
     end date to be 2022-03-17T15:59:59.999Z for 2022 03-17
     IP = "xxx.xxx.xxx.xxx" format
     returns 4 values: URL, hashes, time_start,time_end """
-    # load basic json request
-    json_file = open(r"C:\Data_Science_Projects\IoT\OpenSearch_json.txt")
+    # load basic json request text file
+    json_file = open(r"C:\Data_Science_Projects\IoT\IoT\IoT\OS_SG_json.txt")
     json_request = json.load(json_file)
 
     # set ip address

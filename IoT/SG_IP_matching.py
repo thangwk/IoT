@@ -5,12 +5,14 @@ import shodan
 from datetime import datetime
 from tqdm import tqdm
 import config
+import os
 SHODAN_API_KEY = config.shodan_api_key
 
 api = shodan.Shodan(SHODAN_API_KEY)
 def match_SG_IP(df, output_filename):
     # load PoC-monitored-APIxlsx file
-    SG_IP = pd.read_excel(r"D:\Data\DarkNet\PoC-monitored-APxlsx.xlsx")
+    #SG_IP = pd.read_excel(r"D:\Data\DarkNet\PoC-monitored-APxlsx.xlsx")
+    SG_IP = pd.read_excel(r"C:\Data_Science_Projects\IoT\Data\PoC-monitored-APxlsx.xlsx")
 
     is_SG_IP_BGP = []
     is_SG_IP_Shodan = []
@@ -31,6 +33,6 @@ def match_SG_IP(df, output_filename):
     df['As Name BGP'] = is_SG_IP_BGP
     df['Shodan Check'] = is_SG_IP_Shodan
     df_ = df[(df['As Name BGP']!="No") | (df['Shodan Check']=='SG')]
-    os.chdir(r"D:\Projects\IoT\data")
+    #os.chdir(r"D:\Projects\IoT\data")
     df_.to_csv("check_IP_address_" + output_filename + "_" + str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S')) + ".csv", index=False)
     return df_
