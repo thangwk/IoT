@@ -3,7 +3,7 @@
     "index": "gca-honeyfarm-1-*,gca-honeyfarm-2-*",
     "body": {
       "version": true,
-      "size": 500,
+      "size": 10000,
       "sort": [
         {
           "startTime": {
@@ -16,7 +16,7 @@
         "2": {
           "date_histogram": {
             "field": "startTime",
-            "calendar_interval": "1h",
+            "fixed_interval": "30s",
             "time_zone": "Asia/Singapore",
             "min_doc_count": 1
           }
@@ -25,7 +25,14 @@
       "stored_fields": [
         "*"
       ],
-      "script_fields": {},
+      "script_fields": {
+        "deltaTime": {
+          "script": {
+            "source": "def diffInMs = doc['endTime'].value.getMillis() - doc['startTime'].value.getMillis(); \nreturn diffInMs;",
+            "lang": "painless"
+          }
+        }
+      },
       "docvalue_fields": [
         {
           "field": "@timestamp",
@@ -48,22 +55,23 @@
           "must": [],
           "filter": [
             {
-              "bool": {
-                "should": [
-                  {
-                    "match": {
-                      "geoip.country_code2": "SG"
-                    }
-                  }
-                ],
-                "minimum_should_match": 1
+              "match_all": {}
+            },
+            {
+              "exists": {
+                "field": "commands"
+              }
+            },
+            {
+              "match_phrase": {
+                "geoip.country_code2": "SG"
               }
             },
             {
               "range": {
                 "startTime": {
-                  "gte": "2022-09-03T06:22:41.695Z",
-                  "lte": "2022-09-05T06:22:41.695Z",
+                  "gte": "2022-09-14T04:58:21.643Z",
+                  "lte": "2022-09-14T05:13:21.643Z",
                   "format": "strict_date_optional_time"
                 }
               }
@@ -86,6 +94,6 @@
         "fragment_size": 2147483647
       }
     },
-    "preference": 1662358480769
+    "preference": 1663123122979
   }
 }

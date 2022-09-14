@@ -1,12 +1,21 @@
-def opensearch_request(start_date, end_date):
-    """function to find ip address that is doing a "wget" based on IP
-    start date to be in format as listed 2022-03-01T16:00:00.000Z for 2022 03-02 00:00hours
-    end date to be 2022-03-17T15:59:59.999Z for 2022 03-17
-    IP = "xxx.xxx.xxx.xxx" format
+from dateutil import parser
+from datetime import datetime, timedelta
+import json
+import config
+import requests
+import pandas as pd
+
+def opensearch_request_SG(start_date, end_date):
+    """function to find ip address in SG
+    date to be in format as listed YYYY-MM-DD
     returns 4 values: URL, hashes, time_start,time_end """
     # load basic json request text file
     json_file = open(r"C:\Data_Science_Projects\IoT\IoT\IoT\OS_SG_json.txt")
     json_request = json.load(json_file)
+
+    date_time = parser.parse(start_date)
+    new_date = date_time + timedelta(days=1)
+    start_date = str(datetime.strftime(new_date,("%Y-%m-%d")))
 
     # set ip address
     #json_request['params']['body']['query']['bool']['filter'][0]['bool']['filter'][0]['multi_match']['query'] = ip
@@ -16,11 +25,11 @@ def opensearch_request(start_date, end_date):
 
     # start time
     # 2022-03-02T15:59:59.999Z is 2022 03-02 00:00hours
-    json_request['params']['body']['query']['bool']['filter'][1]['range']['startTime']['gte'] = start_date
+    json_request['params']['body']['query']['bool']['filter'][3]['range']['startTime']['gte'] = start_date + "T16:00:00.000Z"
 
     # end time
     # 2022-03-03T15:59:59.999Z is 2022 03-03 23:59hours
-    json_request['params']['body']['query']['bool']['filter'][1]['range']['startTime']['lte'] = end_date
+    json_request['params']['body']['query']['bool']['filter'][3]['range']['startTime']['lte'] = end_date + "T15:59:59.999Z"
 
     headers = {
         'osd-xsrf': 'true',

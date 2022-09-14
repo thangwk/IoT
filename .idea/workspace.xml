@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21f1f577-d37f-487a-88a0-1d925da33c5a" name="Changes" comment="Add in shodan checks for match_SG_IP typos">
-      <change afterPath="$PROJECT_DIR$/IoT/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IoT/virusTotal_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/virusTotal_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IoT/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IoT/OS_SG_json.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/OS_SG_json.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IoT/Opensearch_API_SG.py" beforeDir="false" afterPath="$PROJECT_DIR$/IoT/Opensearch_API_SG.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/IoT/Main.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -40,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Data_Science_Projects/IoT/IoT&quot;,
@@ -51,7 +57,28 @@
       <recent name="C:\Data_Science_Projects\IoT\IoT\IoT" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ipapi_check">
+  <component name="RunManager" selected="Python.Main">
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/IoT" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IoT/Main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="ipapi_check" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,6 +124,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Main" />
         <item itemvalue="Python.ipapi_check" />
       </list>
     </recent_temporary>
@@ -195,7 +223,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652862525098</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add in shodan checks for match_SG_IP typos">
+      <created>1652862605691</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652862605691</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add in shodan checks for match_SG_IP typos">
+      <created>1662359847591</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1662359847591</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +252,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added 2 more functions IP_address_filter.py &amp; SG_IP_matching.py" />
     <MESSAGE value="amended main with comments on the flow." />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
